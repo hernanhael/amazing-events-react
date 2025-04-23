@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Home from './pages/home/Home'
-import './App.css'
+import './App.scss'
 
 /* const apiURL = '' */
 const data = {
