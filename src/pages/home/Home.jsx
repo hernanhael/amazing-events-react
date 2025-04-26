@@ -8,11 +8,12 @@ export default function Home({ events }) {
   return (
     <div className="home-container">
       <MainLayout>
-        <main className="main-container">
+        <section className="event-section">
+          <h2>Events</h2>
           {events.events.map((event) => (
             <CardEvent event={event} key={event._id} />
           ))}
-        </main>
+        </section>
       </MainLayout>
     </div>
   )
