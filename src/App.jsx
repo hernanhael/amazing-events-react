@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom'
+import LayoutMain from './layouts/main/MainLayout'
 import Home from './pages/home/Home'
+import UpcomingEvents from './pages/upcoming-events/UpcomingEvents'
+import PastEvents from './pages/past-events/PastEvents'
 import './App.scss'
 
 /* const apiURL = '' */
@@ -198,6 +205,27 @@ const data = {
   ],
 }
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LayoutMain />,
+    children: [
+      {
+        index: true,
+        element: <Home events={data} />,
+      },
+      {
+        path: 'upcoming-events',
+        element: <UpcomingEvents />,
+      },
+      {
+        path: 'past-events',
+        element: <PastEvents />,
+      },
+    ],
+  },
+])
+
 export default function App() {
   /*   const [events, setEvents] = useState([]) */
 
@@ -209,8 +237,9 @@ export default function App() {
   }, []) */
 
   return (
-    <>
+    <RouterProvider router={router} />
+    /* <LayoutMain>
       <Home events={data} />
-    </>
+    </LayoutMain> */
   )
 }
