@@ -9,8 +9,9 @@ export default function LayoutMain({ children }) {
   return (
     <div className="main-layout-container">
       <Header />
-      {<main className="main-layout">{children}</main>}
-      <Outlet />
+      <main className="main-layout">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   )
